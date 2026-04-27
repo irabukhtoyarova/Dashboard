@@ -5,54 +5,81 @@
 }
 
 .body {
-  background-color: #f5f3ef;
+  background-color: #88b8cee5;
   display: flex;
   height: 100vh;
 }
 
 
-#open-button {
+.open-button {
   position: fixed;
-  background-color: #808b40;
-  color: #f5f3ef;
+  background-color: #a13a1e;
+  color: #fefaf0;
   cursor: pointer;
   padding: 10px 15px;
   border: none;
   border-radius: 15px;
   font-size: 1.2em;
   box-shadow: 0 2px 5px #0003;
+  transition: 0.3s;
+}
+
+.open-button:hover {
+  background-color: #f1c166;
+  color: #542916;
+  transition: 0.3s;
+}
+
+.open-button.none {
+  display: none;
 }
 
 
-#side-panel {
+.side-panel {
   display: flex;
   flex-direction: column;
   width: 250px;
-  background-color: #305c7d;
-  color: #f5f3ef;
+  background-color: #f1c166;
+  color: #a13a1e;
   transition: 0.3s;
   gap: 15px;
+  transform: translate(-100%);
+  transition: 0.3s;
+  display: none;
 }
 
-#toggle-button {
-  background-color: #2b5270e8;
-  color: #f5f3ef;
+.side-panel.open {
+  display: flex;
+  transform: translate(0%);
+  transition: 0.3s;
+}
+
+.toggle-button {
+  background-color: #a13a1e;
+  color: #88b8ce;
   border: none;
   padding: 15px;
   margin: 0;
   cursor: pointer;
   text-align: center;
   font-size: 1em;
+  transition: 0.3s;
+}
+
+.toggle-button:hover {
+  background-color: #e7b14d;
+  color: #542916;
+  transition: 0.3s;
 }
 
 .month-selector {
 padding: 20px;
-border-bottom: 1px solid #2b5270e8;
+border-bottom: 1px solid #542916;
 }
 
 .month-select h3 {
   margin: 0 0 15px;
-  color: #f5f3ef;
+  color: #a13a1e;
   font-size: 1.1em;
   text-align: center;
 }
@@ -64,8 +91,8 @@ border-bottom: 1px solid #2b5270e8;
   margin-bottom: 10px;
   border: none;
   border-radius: 7px;
-  background-color: #2b5270e8;
-  color: #f5f3ef;
+  background-color: #88b8ce;
+  color: #542916;
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.2s;
@@ -73,16 +100,16 @@ border-bottom: 1px solid #2b5270e8;
 
 .month-select:hover,
 .year-select:hover {
-  background-color: #3b76a3f7;
+  background-color: #a6d3e7;
 }
 
 .month-select:focus,
 .year-select:focus {
-  outline: 2px solid #0e304af7;
-  background-color: #3b76a3f7;
+  outline: 2px solid #542916;
+  background-color: #a6d3e7;
 }
 
-#side-panel nav {
+.side-panel-nav {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
@@ -91,25 +118,44 @@ border-bottom: 1px solid #2b5270e8;
 .nav-item {
   text-decoration: none;
   padding: 15px 20px;
-  color: #f5f3ef;
+  color: #fefaf0;
   transition: background-color 0.2s;
   border-left: 3px solid transparent;
+  cursor: pointer;
 }
 
 .nav-item.active {
-  background-color: #3b76a3ad;
-  border-left-color: #0e304af7;
+  background-color: #a13a1e;
+  border-left-color: #88b8ce;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .nav-item:hover {
-  background-color: #3b76a3ad;
+  background-color: #699cb4;
 }
 
 #main-content {
   overflow: auto;
   padding: 40px;
 }
+
+.project-content {
+  display: block;
+}
+
+.project-content.none {
+  display: none;
+}
+
+.employees-content {
+  display: none;
+}
+
+.employees-content.active {
+  display: block;
+}
+
 
 .content-header {
   display: flex;
@@ -119,15 +165,15 @@ border-bottom: 1px solid #2b5270e8;
 }
 
 #main-content h1 {
-  color: #be5e3e;
+  color: #a13a1e;
   border-bottom: 2px solid #65819bab;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
 
 .add-btn {
-  background-color: #808b40;
-  color: #f5f3ef;
+  background-color: #542916;
+  color: #f1c166;
   border: none;
   border-radius: 7px;
   cursor: pointer;
@@ -137,7 +183,8 @@ border-bottom: 1px solid #2b5270e8;
 }
 
 .add-btn:hover {
-  background-color: #98aa33;
+  background-color: #f1c166;
+  color: #542916;
 }
 
 table {
@@ -148,14 +195,14 @@ table {
 }
 
 thead {
-  background-color: #305c7d;
-  color: #f5f3ef;
+  background-color: #fefaf0;
+  color: #542916;
 }
 
 th, td {
   padding: 15px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #542916;
 }
 
 th.sortable {
@@ -179,7 +226,7 @@ th.sortable:hover {
   right: 0;
   width: 350px;
   height: 100%;
-  background-color: #ddd;
+  background-color: #dbb15d;
   box-shadow: -2px 0 10px #0003;
   transition: transform 0.3s, visibility 0.3s, opacity 0.3s;
   padding: 20px;
@@ -196,25 +243,49 @@ th.sortable:hover {
 }
 
 .side-panel-right h2 {
-  color: #0c1c28;
+  color: #542916;
   border-bottom: 2px solid #65819bab;
   padding-bottom: 10px;
   margin-top: 0;
 }
 
-#add-employee-form label {
+button {
+cursor: pointer;
+}
+
+.btn-cancel {
+  background-color: #a13a1e;
+  color: #fefaf0;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s;
+  padding: 2.5px 5px;
+}
+
+.btn-cancel:hover {
+  background-color: #fefaf0;
+  color: #a13a1e;
+}
+
+
+
+#add-employee-form label,
+#add-project-form label {
   display: block;
   margin-top: 15px;
-  color: #0c1c28;
+  color: #542916;
 }
 
 #add-employee-form input,
 #add-employee-form select,
-#add-project-form select {
+#add-project-form select,
+#add-project-form input {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
-  border: 1px solid #65819bab;
+  border: 1px solid #88b8ce;
   box-sizing: border-box;
 }
 
@@ -245,6 +316,11 @@ th.sortable:hover {
   width: 100%;
   height: 100%;
   background-color: #00000080;
+  display: none;
+}
+
+.popup-backdrop.on {
+  display: block;
 }
 
 .seed-data-popup {
@@ -260,7 +336,13 @@ th.sortable:hover {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  display: none;
 }
+
+.seed-data-popup.on {
+  display: block;
+}
+
 
 .seed-data-popup .popup-content {
   padding: 20px;

@@ -9,9 +9,9 @@
     <script src="index.js" defer></script>
   </head>
   <body class="body">
-    <button id="open-button" class="">→</button>
-    <div id="side-panel" class="">
-      <button id="toggle-button">✕</button>
+    <button class="open-button">→</button>
+    <div class="side-panel">
+      <button class="toggle-button">✕</button>
       <div class="month-selector">
         <h3>Period</h3>
         <select id="month-select" class="month-select">
@@ -34,29 +34,43 @@
           <option value="2027">2027</option>
         </select>
       </div>
-      <nav>
-        <a href="" id="nav-project" class="nav-item active">Projects</a>
-        <a href="" id="nav-employees" class="nav-item">Employees</a>
+      <nav class="side-panel-nav">
+        <p id="nav-project" class="nav-item active">Projects</p>
+        <p id="nav-employees" class="nav-item">Employees</p>
       </nav>
     </div>
     <div id="main-content">
-      <div id="project-content" class>
+      <div class="project-content">
         <div class="content-header">
           <h1>Projects</h1>
           <div>
             <button id="add-project-btn" class="add-btn">+ Add Project</button>
-            <button id="seed-data-btn" class="add-btn" style="margin-left: 10px">Seed Data</button>
+            <button
+              id="seed-data-btn"
+              class="add-btn"
+              style="margin-left: 10px"
+            >
+              Seed Data
+            </button>
           </div>
         </div>
         <table id="project-table">
           <thead>
             <tr>
-              <th class="sortable filterable" data-sort="companyName" data-filter="companyName">
+              <th
+                class="sortable filterable"
+                data-sort="companyName"
+                data-filter="companyName"
+              >
                 Company Name
                 <span class="sort-icon">⇅</span>
                 <span class="filter-icon" title="Filter">&#128270;</span>
               </th>
-              <th class="sortable filterable" data-sort="projectName" data-filter="projectName">
+              <th
+                class="sortable filterable"
+                data-sort="projectName"
+                data-filter="projectName"
+              >
                 Project Name
                 <span class="sort-icon">⇅</span>
                 <span class="filter-icon" title="Filter">&#128270;</span>
@@ -84,7 +98,7 @@
           <span class="total-amount positive-income" $0.00></span>
         </div>
       </div>
-      <div id="employees-content" class>
+      <div class="employees-content">
         <div class="content-header">
           <h1>Employees</h1>
           <button id="add-employee-btn" class="add-btn">+ Add Employee</button>
@@ -92,12 +106,20 @@
         <table id="employees-table">
           <thead>
             <tr>
-              <th class="sortable filterable" data-sort="name" data-filter="name">
+              <th
+                class="sortable filterable"
+                data-sort="name"
+                data-filter="name"
+              >
                 Name
                 <span class="sort-icon">⇅</span>
                 <span class="filter-icon" title="Filter">&#128270;</span>
               </th>
-              <th class="sortable filterable" data-sort="surname" data-filter="surname">
+              <th
+                class="sortable filterable"
+                data-sort="surname"
+                data-filter="surname"
+              >
                 Surname
                 <span class="sort-icon">⇅</span>
                 <span class="filter-icon" title="Filter">&#128270;</span>
@@ -106,7 +128,11 @@
                 Age
                 <span class="sort-icon">⇅</span>
               </th>
-              <th class="sortable filterable" data-sort="position" data-filter="position">
+              <th
+                class="sortable filterable"
+                data-sort="position"
+                data-filter="position"
+              >
                 Position
                 <span class="sort-icon">⇅</span>
                 <span class="filter-icon" title="Filter">&#128270;</span>
@@ -119,7 +145,11 @@
                 Estimated Payment
                 <span class="sort-icon">⇅</span>
               </th>
-              <th class="sortable filterable" data-sort="projectId" data-filter="projectId">
+              <th
+                class="sortable filterable"
+                data-sort="projectId"
+                data-filter="projectId"
+              >
                 Project
                 <span class="sort-icon">⇅</span>
                 <span class="filter-icon" title="Filter">&#128270;</span>
@@ -147,7 +177,9 @@
             pattern="[A-Za-z0-9\s]+"
             title="Project name must be at least 3 characters"
           />
-          <span class="error-message" id="project-name-error">Project name must be at least 3 characters</span>
+          <span class="error-message" id="project-name-error"
+            >Project name must be at least 3 characters</span
+          >
           <label for="company-name">Company Name: *</label>
           <input
             type="text"
@@ -158,16 +190,44 @@
             pattern="[A-Za-z0-9\s]+"
             title="Company name must be at least 3 characters"
           />
-          <span class="error-message" id="company-name-error">Company name must be at least 3 characters</span>
+          <span class="error-message" id="company-name-error"
+            >Company name must be at least 3 characters</span
+          >
           <label for="project-budget">Budget: *</label>
-          <input type="number" id="project-budget" name="project-budget" required min="0.01" step="0.01" title="Budget must be greater than 0" />
-          <span class="error-message" id="project-budget-error">Budget must be greater than 0</span>
+          <input
+            type="number"
+            id="project-budget"
+            name="project-budget"
+            required
+            min="0.01"
+            step="0.01"
+            title="Budget must be greater than 0"
+          />
+          <span class="error-message" id="project-budget-error"
+            >Budget must be greater than 0</span
+          >
           <label for="employee-capacity">Employee Capacity: *</label>
-          <input type="number" id="employee-capacity" name="employee-capacity" required min="1" step="1" title="Employee capacity must be at least 1" />
-          <span class="error-message" id="employee-capacity-error">Employee capacity must be at least 1</span>
+          <input
+            type="number"
+            id="employee-capacity"
+            name="employee-capacity"
+            required
+            min="1"
+            step="1"
+            title="Employee capacity must be at least 1"
+          />
+          <span class="error-message" id="employee-capacity-error"
+            >Employee capacity must be at least 1</span
+          >
           <div class="form-buttons">
             <button type="submit" id="add-poject-btn-form" disabled>Add</button>
-            <button type="button" id="cancel-project-btn-form">Cancel</button>
+            <button
+              type="button"
+              id="cancel-project-btn-form"
+              class="btn-cancel"
+            >
+              Cancel
+            </button>
           </div>
         </form>
       </div>
@@ -178,7 +238,12 @@
           <button class="close-popup-btn">✕</button>
         </div>
         <div class="popup-content">
-          <p>Select a month to copy its data to the current month (<span id="current-month-display"></span>)</p>
+          <p>
+            Select a month to copy its data to the current month (<span
+              id="current-month-display"
+            ></span
+            >)
+          </p>
           <table id="seed-data-table">
             <thead>
               <tr>
@@ -190,7 +255,7 @@
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody id="seed-data-table-boy"></tbody>
+            <tbody id="seed-data-table-body"></tbody>
           </table>
         </div>
       </div>
@@ -207,7 +272,9 @@
             pattern="[A-Za-z\s]"
             title="Name must be at least 3 characters and contain only letters"
           />
-          <span class="error-message" id="name-error">Name must be at least 3 characters and contain only letters</span>
+          <span class="error-message" id="name-error"
+            >Name must be at least 3 characters and contain only letters</span
+          >
           <label for="surname">Surname: *</label>
           <input
             type="text"
@@ -218,10 +285,21 @@
             pattern="[A-Za-z\s]"
             title="Surname must be at least 3 characters and contain only letters"
           />
-          <span class="error-message" id="surname-error">Surname must be at least 3 characters and contain only letters</span>
+          <span class="error-message" id="surname-error"
+            >Surname must be at least 3 characters and contain only
+            letters</span
+          >
           <label for="dob">Date of Birth: *</label>
-          <input type="date" id="dob" name="dob" required title="Date of birth is required" />
-          <span class="error-message" id="dob-error">You must be at least 19 years old</span>
+          <input
+            type="date"
+            id="dob"
+            name="dob"
+            required
+            title="Date of birth is required"
+          />
+          <span class="error-message" id="dob-error"
+            >You must be at least 19 years old</span
+          >
           <label for="position">Position: *</label>
           <select id="position" name="position" required>
             <option value>Select position</option>
@@ -232,13 +310,33 @@
             <option value="Architect">Architect</option>
             <option value="BO">BO</option>
           </select>
-          <span class="error-message" id="position-error">Please select a position</span>
+          <span class="error-message" id="position-error"
+            >Please select a position</span
+          >
           <label for="salary">Salary: *</label>
-          <input type="number" id="salary" name="salary" required min="0.01" step="0.01" title="Salary must be greater than 0" />
-          <span class="error-message" id="salary-error">Salary must be greater then 0</span>
+          <input
+            type="number"
+            id="salary"
+            name="salary"
+            required
+            min="0.01"
+            step="0.01"
+            title="Salary must be greater than 0"
+          />
+          <span class="error-message" id="salary-error"
+            >Salary must be greater then 0</span
+          >
           <div class="form-buttons">
-            <button type="submit" id="add-btn-form" disabled>Add</button>
-            <button type="button" id="cancel-btn-form">Cancel</button>
+            <button type="submit" id="add-employee-btn-form" disabled>
+              Add
+            </button>
+            <button
+              type="button"
+              id="cancel-employee-btn-form"
+              class="btn-cancel"
+            >
+              Cancel
+            </button>
           </div>
         </form>
       </div>

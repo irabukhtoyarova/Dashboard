@@ -7,7 +7,7 @@
 .body {
   background-color: #88b8cee5;
   display: flex;
-  height: 100vh;
+  height: 100vh;  
 }
 
 
@@ -73,8 +73,8 @@
 }
 
 .month-selector {
-padding: 20px;
-border-bottom: 1px solid #542916;
+  padding: 20px;
+  border-bottom: 1px solid #542916;
 }
 
 .month-select h3 {
@@ -136,6 +136,7 @@ border-bottom: 1px solid #542916;
 }
 
 #main-content {
+  display: flex;
   overflow: auto;
   padding: 40px;
 }
@@ -250,7 +251,7 @@ th.sortable:hover {
 }
 
 button {
-cursor: pointer;
+  cursor: pointer;
 }
 
 .btn-cancel {
@@ -269,6 +270,28 @@ cursor: pointer;
   color: #a13a1e;
 }
 
+.add-new-btn {
+  background-color: #fefaf0;
+  color: #9bad50;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s;
+  padding: 2.5px 5px;
+  margin-right: 8px;
+}
+
+.add-new-btn:hover {
+  background-color: #9bad50;
+  color: #fefaf0;
+}
+
+.add-new-btn:disabled {
+  cursor: not-allowed;
+  background-color: grey;
+  color: black;
+}
 
 
 #add-employee-form label,
@@ -345,6 +368,33 @@ cursor: pointer;
 
 
 .seed-data-popup .popup-content {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.show-employees-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px #0000004d;
+  width: 80%;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  display: none;
+}
+
+.show-employees-popup.on {
+  display: block;
+}
+
+
+.show-employees-popup .popup-content {
   padding: 20px;
   overflow-y: auto;
   flex: 1;

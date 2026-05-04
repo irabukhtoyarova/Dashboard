@@ -400,3 +400,33 @@ button {
   flex: 1;
 }
 
+.editable-td {
+  position: relative;
+  padding-right: 25px !important; 
+}
+
+.edit-trigger {
+  display: none;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #007bff;
+}
+
+.editable-td:hover .edit-trigger {
+  display: inline-block;
+}
+
+.cell-text[contenteditable="true"] {
+  background: white;
+  border: 1px solid #007bff;
+  padding: 2px 4px;
+  outline: none;
+  display: inline-block;
+  min-width: 50px;
+}
